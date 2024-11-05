@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotating Navbar Logo</title>
+  <style>
+body {
+  background-color: red;
+}
+    .container {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      perspective: 1000px;
+
+    }
+
+    .rotating-div {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      animation: rotate360 5s infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    .image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      background-size: contain; /* Ensures the entire image is shown */
+      background-position: center;
+      background-repeat: no-repeat; /* Prevents image repetition */
+    }
+
+    /* First image (Main Logo) */
+    .image1 {
+      background-image: url('https://cdn.shopify.com/s/files/1/0320/4405/6716/files/Zeen_1_22.svg?v=1683627677');
+    }
+
+    /* Second image */
+    .image2 {
+      background-image: url('https://cdn.shopify.com/s/files/1/0704/7600/5623/files/image-removebg-preview.png?v=1730794518');
+      transform: rotateY(180deg);
+    }
+
+    /* Rotate animation with pause effect */
+    @keyframes rotate360 {
+      0%, 25% {
+        transform: rotateY(0deg);
+      }
+      50%, 75% {
+        transform: rotateY(180deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav style="display: flex; align-items: center; padding: 10px;">
+  <div class="container">
+    <div class="rotating-div">
+      <div class="image image1"></div>
+      <div class="image image2"></div>
+    </div>
+  </div>
+  <!-- Other navbar content here -->
+</nav>
+
+</body>
+</html>
